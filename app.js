@@ -12,7 +12,11 @@ btn.addEventListener('click', function () {
     if (document.getElementById('addTxt').value != "") {
         var a = document.getElementById('addTxt').value
 
-        notes = JSON.parse(localStorage.getItem('notes'))
+       if(JSON.parse(localStorage.getItem('notes'))!=null){
+            notes = JSON.parse(localStorage.getItem('notes'))
+        }else{
+            notes = ["This is from user. You can delete it"]
+        }
         notes.push(a)
         localStorage.setItem('notes', JSON.stringify(notes))
         console.log(notes);
